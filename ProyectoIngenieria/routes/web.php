@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/formulario', [paginasControlador::class, 'formulario']);
+Route::get('/login', [paginasControlador::class, 'login']);
+

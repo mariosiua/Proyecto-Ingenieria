@@ -13,5 +13,9 @@ class PaginasControlador extends Controller{
     public function formulario(){
         return view("formulario");
     }
+    public function login(){
+        return view("login");
+    }
+
     
 }
