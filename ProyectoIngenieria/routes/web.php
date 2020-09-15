@@ -20,4 +20,6 @@ Route::get('/', function () {
 
 Route::get('/formulario', [paginasControlador::class, 'formulario']);
 Route::get('/login', [paginasControlador::class, 'login']);
+Route::get('/contacto', [paginasControlador::class, 'contactar']);
+Route::get('/galeria', [paginasControlador::class, 'galeria']);
 

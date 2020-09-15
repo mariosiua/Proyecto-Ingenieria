@@ -16,6 +16,12 @@ class PaginasControlador extends Controller{
     public function login(){
         return view("login");
     }
+    public function contactar(){
+        return view("contacto");
+    }
+    public function galeria(){
+        return view("galeria");
+    }
 
     
 }
