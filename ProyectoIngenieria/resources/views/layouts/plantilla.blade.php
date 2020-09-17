@@ -2,45 +2,20 @@
 <head>
 <meta charset="utf-8" />
 <title></title>
-
-<style>
-
-.contenedor{
-    background-color: #F00;
-    text-align: center;
-}
-
-.infoGeneral{
-    background-color: #00F;
-    margin:200px 0;
-    color: #FFF;
-}
-
-.pie{
-    background-color: #FF0;
-}
-
-</style>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> 
 </head>
 
 <body>
 </body>
 
-<div class="contenedor">
+    @include("layouts.navbar")
     @yield("cabecera")
-</div>
 
-<div class="infoGeneral">
+
     @yield("infoGeneral")
-</div>
-
-<div class="pie">
+    @include("layouts.card")
     @yield("pie")
 
-    Aqui va el contenido del pie
-
-</div>
 
 </html>
 
