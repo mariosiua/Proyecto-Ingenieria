@@ -30,7 +30,17 @@ class PaginasControlador extends Controller{
         $usuarioInser->usuario = "1927";
         $usuarioInser->contrasenna = "lilo";
         $usuarioInser->rol = 1;
-        
+
+        $usuarioInser->save();
+        return view("welcome");
+    }
+
+    public function actualiza(Request $request)
+    {
+        $usuarioInser = Usuario::find(1927);
+        $usuarioInser->contrasenna = "PASS";
+        $usuarioInser->rol = 0;
+
         $usuarioInser->save();
         return view("welcome");
     }

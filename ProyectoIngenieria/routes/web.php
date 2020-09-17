@@ -24,6 +24,7 @@ Route::get('/login', [paginasControlador::class, 'login']);
 Route::get('/contacto', [paginasControlador::class, 'contactar']);
 Route::get('/galeria', [paginasControlador::class, 'galeria']);
 Route::get('/store', [paginasControlador::class, 'store']);
+Route::get('/actualiza', [paginasControlador::class, 'actualiza']);
 
 Route::get('/leer', function(){
     $usuario = Usuario::all();
