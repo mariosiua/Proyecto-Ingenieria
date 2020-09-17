@@ -23,6 +23,7 @@ Route::get('/formulario', [paginasControlador::class, 'formulario']);
 Route::get('/login', [paginasControlador::class, 'login']);
 Route::get('/contacto', [paginasControlador::class, 'contactar']);
 Route::get('/galeria', [paginasControlador::class, 'galeria']);
+Route::get('/store', [paginasControlador::class, 'store']);
 
 Route::get('/leer', function(){
     $usuario = Usuario::all();
@@ -40,11 +41,3 @@ Route::get('/leerRol', function(){
     return $usuarios;
 });
 
-Route::get("/insertar", function(){
-    $usuarioInser = new Usuario;
-    $usuarioInser->usuario = "9090";
-    $usuarioInser->contrasenna = "lilo";
-    $usuarioInser->rol = 1;
-
-    $usuarioInser->save();
-});
