@@ -17,6 +17,21 @@ class PaginasControlador extends Controller{
     public function login(){
         return view("login");
     }
+
+    public function verifica(Request $request){
+        $usuario = Usuario::where([['usuario', $request->input('usuario')] , ['contrasenna',$request->input('password')]])->get();
+        echo $usuario;
+        if($usuario != '[]'){
+            // $Usu = json_decode($usuario, true);
+            // if($Usu[0]["usuario"] == $request->input('usuario') && $Usu[0]["contrasenna"] == $request->input('password')){
+            return view("formulario");    
+        }else{
+            return view("login");
+        }
+
+    }
+
+
     public function contactar(){
         return view("contacto");
     }
@@ -37,7 +52,7 @@ class PaginasControlador extends Controller{
 
     public function actualiza(Request $request)
     {
-        $usuarioInser = Usuario::find(1927);
+        $usuarioInser = Usuario::find('1927');
         $usuarioInser->contrasenna = "PASS";
         $usuarioInser->rol = 0;
 

@@ -49,9 +49,10 @@
     <div class="login-card">
         <img src="imagenes/persona.png" class="profile-img-card" />
         <p class="profile-name-card"> </p>
-        <form class="form-signin"><span class="reauth-email"></span>
-            <input class="form-control" type="email" required placeholder="Nombre de usuario" autofocus id="inputEmail" />
-            <input class="form-control" type="password" required placeholder="Contraseña" id="inputPassword" />
+        <form class="form-signin" action="/verifica" method="post"><span class="reauth-email"></span>
+            @csrf
+            <input class="form-control" type="text" required placeholder="Nombre de usuario" autofocus id="InputUsuario" name="usuario" value="123"/>
+            <input class="form-control" type="password" required placeholder="Contraseña" id="InputPassword" name="password" value="root"/>
             <div class="checkbox">
                 <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-6" />Recordar nombre de usuario</div>
             </div>
@@ -59,7 +60,13 @@
         </form>
         <a href="#" class="forgot-password">¿Olvidó su nombre de usuario o contraseña?</a>
     </div>
+    <script>
+    function verifica(){
+        $.ajax({type:"POST", url:"api/correos?direccionDestino="+direccion+"&asunto="+asu+"&cuerpo="+cuerpo, contentType:"application/json"})
+              .then( (c)=>{seEnvioCorreo(c);},
+              (error)=>{ alert(errorMessage(error.status));});
+    }
+    </script>
 </body>
-
 </html>
 
