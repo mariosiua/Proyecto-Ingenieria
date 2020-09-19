@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/informe-mensual', function () {
+    return view('informe-mensual');
+});
+
 Route::get('/formulario', [paginasControlador::class, 'formulario']);
 Route::get('/login', [paginasControlador::class, 'login']);
 Route::get('/contacto', [paginasControlador::class, 'contactar']);

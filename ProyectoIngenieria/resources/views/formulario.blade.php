@@ -55,7 +55,7 @@
 
     <!-- Aqui empieza el  formulario -->
     <div class= "form-card">
-        <h4>VICERRECTORIA DE DOCENCIA</h4><H5>EXITO ACADEMICO</H5><h4>SOLICITUD DE TUTORIA</h4>
+        <h4 class="text-center">VICERRECTORIA DE DOCENCIA</h4><H5 class="text-center">EXITO ACADEMICO</H5><h4 class="text-center">SOLICITUD DE TUTORIA</h4>
         <!-- Hilera del formulario -- nombre -->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -133,15 +133,13 @@
             <input type="text" class="form-control" id="campo-horas" aria-describedby="basic-addon2">
           </div>
 
-
-
           <span class="input-group-text text-uppercase">Síntesis de la situación:</span>
           <div class="input-group">
             <textarea class="form-control"></textarea>
           </div>
 
           <br>
-          <h5> DISPONIBILIDAD DE HORARIO  </h5>
+          <h5 class="text-center"> DISPONIBILIDAD DE HORARIO  </h5>
           <div class="table-responsive ">
             <table class="table table-bordered">
               <thead>
