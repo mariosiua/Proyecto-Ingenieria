@@ -60,13 +60,6 @@
         </form>
         <a href="#" class="forgot-password">¿Olvidó su nombre de usuario o contraseña?</a>
     </div>
-    <script>
-    function verifica(){
-        $.ajax({type:"POST", url:"api/correos?direccionDestino="+direccion+"&asunto="+asu+"&cuerpo="+cuerpo, contentType:"application/json"})
-              .then( (c)=>{seEnvioCorreo(c);},
-              (error)=>{ alert(errorMessage(error.status));});
-    }
-    </script>
 </body>
 </html>
 

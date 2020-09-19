@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 
+
 class PaginasControlador extends Controller{
 
     public function inicio(){
