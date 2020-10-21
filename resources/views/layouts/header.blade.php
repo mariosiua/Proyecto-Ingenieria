@@ -164,7 +164,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/user/profile" :active="request()->routeIs('profile.show')">
                         {{ __('Profile') }}
-                    </a>
+                    </a> 
                 </li>
                 <li class="nav-item">
                     <form method="POST" action="{{ route('logout') }}">
