@@ -1,8 +1,25 @@
 <?php
 
+
+use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\EstudianteDetalleController;
+use App\Http\Controllers\AsesorController;
+use App\Http\Controllers\TutorController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SuperAdministradorController;
+use App\Http\Controllers\DetalleCursoController;
+use App\Http\Controllers\ClaseController;
+use App\Http\Controllers\ListaCursoEstudianteController;
+use App\Http\Controllers\PersonaController;
+use App\Http\Controllers\HorarioAsesorController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\SeguimientoController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\paginasControlador;
-use App\Models\Usuario;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\User;
+use App\Models\estudientes;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,37 +32,102 @@ use App\Models\Usuario;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/logged_in', function () {
+    if (Auth::user() == null) {
+        return view('welcome.welcome');
+    } else {
+        $rol = Auth::user()->rol;
+        $usuario = Auth::user();
+        if ($rol == 0) { //Administrador
+            return view('SuperAdministrador/inicioSuperAdministrador')->with('usuario', $usuario);
+        }
+        if ($rol == 1) { //Administrador
+            return view('Administrador/inicioAdministrador')->with('usuario', $usuario);
+        }
+        if ($rol == 2) { //Asesor
+            return view('Asesor/inicioAsesor')->with('usuario', $usuario);
+        }
+        if ($rol == 3) { //Tutor
+            return view('Tutor/inicioTutor')->with('usuario', $usuario);
+        }
+        if ($rol == 4) { //Estudiante
+            return view('Estudiante/inicioEstudiante')->with('usuario', $usuario);
+        }
+    }
 });
+
+// Rutas Super Administrador
+
+// Rutas Administrador
+Route::get('/Tutores', [AdministradorController::class, 'tablaTutores']);
+
+// Rutas Asesor
+
+// Rutas Tutores
+
+//Rutas Estudiantes
+
+Route::resources([
+    '/SuperAdministrador' => SuperAdministradorController::class,
+    '/Asesor' => AsesorController::class,
+    '/Estudiante' => EstudianteController::class,
+    '/Tutor' => TutorController::class,
+    '/Administrador' => AdministradorController::class,
+    '/User' => UserController::class,
+    '/EstudianteDetalle' => EstudianteDetalleController::class,
+    '/Tutorias-estudiantes' => ListaCursoEstudianteController::class,
+    '/CursosDetallados' => DetalleCursoController::class,
+    '/AgendarSeguimientos' => SeguimientoController::class,
+    '/Clases' => ClaseController::class
+]);
+
+Route::get('/Tutorias-estudiantes/{id}', [ListaCursoEstudianteController::class, 'show']);
+
+
+
+Route::get('/', function () {
+    return view('welcome.welcome');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+
+Route::resource('/horario-citas', HorarioAsesorController::class);
+Route::resource('/Cursos', CursoController::class);
 
 Route::get('/informe-mensual', function () {
     return view('informe-mensual');
 });
 
-Route::get('/formulario', [paginasControlador::class, 'formulario']);
-Route::get('/login', [paginasControlador::class, 'login']);
-Route::get('/contacto', [paginasControlador::class, 'contactar']);
-Route::get('/galeria', [paginasControlador::class, 'galeria']);
-Route::get('/store', [paginasControlador::class, 'store']);
-Route::get('/actualiza', [paginasControlador::class, 'actualiza']);
-Route::post('/verifica', [paginasControlador::class, 'verifica']);
-
-
-Route::get('/leer', function(){
-    $usuario = Usuario::all();
-    foreach($usuario as $usuari){
-        echo "Nombre: " . $usuari-> usuario . "<br>";
-        echo "Contra: " . $usuari-> contrasenna . "<br>";
-        echo "Rol: " . $usuari-> rol . "<br>";
-        echo "-----------------------------". "<br>";
-
-    }
+Route::get('/formulario', function () {
+    return view('formulario');
 });
 
-Route::get('/leerRol', function(){
-    $usuarios = Usuario::where([['usuario', '12345678'] , ['contrasenna','clave123']])->get();
-    return $usuarios;
+Route::get('/referencia', function () {
+    return view('referencia-orientacion');
+});
+
+Route::get('/prueba', function () {
+    return view('Tutor/prueba');
 });
 
 
+
+//Route::resource('/horario', HorarioAsesorController::class);
+
+
+
+Route::get('/asistencia', function () {
+    return view('Tutor/asistencia');
+});
+
+Route::get('/usuarios', [PersonaController::class, 'tablaUsuarios']);
+Route::get('/estudiantes-asignados', [TutorController::class, 'vistaEstudiante']);
+Route::get('/estudiante', [EstudianteController::class, 'tablaEstudiantes']);
+//Route::get('/horarioAsesor', [HorarioAsesorController::class, 'tablaHorarios']);
+
+Route::get('/contrato', function () {
+    return view('contratoDeTutoria');
+});

@@ -14,48 +14,12 @@
 
 <body>
 <!--Main Navigation-->
-<header>
-
-    <nav class="navbar navbar-expand-lg navbar-dark default-color">
-        <a class="navbar-brand" href="#"><strong>UNA</strong></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Opinions</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav nav-flex-icons" id="redes">
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/VDOCENCIAUNA/"><img src="imagenes/facebook.png" class="facebook-img-card" /></a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.instagram.com/vdocenciauna/"><img src="imagenes/instagram.png" class="instagram-img-card" /></a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.youtube.com/channel/UCUs96CKvsIuVdsdxGhWKfjA"><img src="imagenes/youtube.png" class="youtube-img-card" /></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-</header>
+@include('layouts.header')
 <!--Main Navigation-->
 
     <!-- Aqui empieza el  formulario -->
     <div class= "form-card">
-        <h4 class="text-center">VICERRECTORIA DE DOCENCIA</h4><H5 class="text-center">EXITO ACADEMICO</H5><h4 class="text-center">SOLICITUD DE TUTORIA</h4>
+        <h4>VICERRECTORIA DE DOCENCIA</h4><H5>EXITO ACADEMICO</H5><h4>SOLICITUD DE TUTORIA</h4>
         <!-- Hilera del formulario -- nombre -->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -110,7 +74,6 @@
             <input type="text" class="form-control" id ="campo-materia" aria-describedby="basic-addon1">
           </div>
 
-
           <!-- Hilera del formulario -- Profesor -->
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -118,7 +81,6 @@
             </div>
             <input type="text" class="form-control" id ="campo-profesor" aria-describedby="basic-addon1">
           </div>
-
 
           <!-- Hilera del formulario -- Creditos y ano de horas -->
           <div class="input-group mb-3">
@@ -133,13 +95,15 @@
             <input type="text" class="form-control" id="campo-horas" aria-describedby="basic-addon2">
           </div>
 
+
+
           <span class="input-group-text text-uppercase">Síntesis de la situación:</span>
           <div class="input-group">
             <textarea class="form-control"></textarea>
           </div>
 
           <br>
-          <h5 class="text-center"> DISPONIBILIDAD DE HORARIO  </h5>
+          <h5> DISPONIBILIDAD DE HORARIO  </h5>
           <div class="table-responsive ">
             <table class="table table-bordered">
               <thead>
@@ -179,7 +143,6 @@
                     <td class="cuadro-tabla opcion-tabla" hora="1-3" dia="viernes"></td>
                   </tr>
 
-                  
                 <tr>
                     <td>3-5</td>
                     <td class="cuadro-tabla opcion-tabla" hora="3-5" dia="lunes"></td>
@@ -189,7 +152,6 @@
                     <td class="cuadro-tabla opcion-tabla" hora="3-5" dia="viernes"></td>
                   </tr>
 
-                  
                 <tr>
                     <td>5-7</td>
                     <td class="cuadro-tabla opcion-tabla" hora="5-7" dia="lunes"></td>
@@ -199,16 +161,19 @@
                     <td class="cuadro-tabla opcion-tabla" hora="5-7" dia="viernes"></td>
                   </tr>
 
-
               </tbody>
             </table>
           </div>
-
-
-        
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-primary" id="boton-enviar">Enviar solicitud</button>
+            </div>
+        </div>
     </div>
-
+    @include("layouts.footer")
 </body>
+
+</html>
 
 <script>
     
@@ -223,8 +188,5 @@
 
 
 </script>
-
-</html>
-
 
 

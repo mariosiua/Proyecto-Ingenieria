@@ -13,14 +13,17 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) { //Crea tablas
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::create('users', function (Blueprint $table) {
+            $table->string('usuario',45);
+            $table->tinyInteger('rol');
+            $table->string('password',255);
+
+            $table->integer('id');
+            $table->string('name', 45);
+            $table->string('apellido', 45);
+            $table->string('email',45);
+
+            $table->primary('id');
         });
     }
 
@@ -29,7 +32,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function down() // Elimina tablas
+    public function down()
     {
         Schema::dropIfExists('users');
     }

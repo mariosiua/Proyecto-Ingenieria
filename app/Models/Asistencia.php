@@ -5,8 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Asistencia extends Model
+class asistencia extends Model
 {
-    
-    use HasFactory;
+    public $timestamps = false;
+    protected $fillable = [
+        'clase_id',
+        'estudiante_id',
+        'presencialidad'
+    ];
+
+    public function clase()
+    {
+        return $this->belongsTo('App\Models\clase','id');
+    }
+    public function estudiante()
+    {
+        return $this->belongsTo('App\Models\estudiante', 'id');
+    }
 }

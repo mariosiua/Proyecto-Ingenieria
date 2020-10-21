@@ -14,8 +14,35 @@
 .cuadro-tabla{
     width: 16%;
     height: 50px;
+    background-color: white;
 }
 
+.informacion{
+    color: red;
+    background-color: blue;
+}
 
+#divTabla{
+    width: 100%;
+}
+#tabla{
+    width: 100%;
+    border: 2px black solid;
+    text-align: center;
+}
+#tabla tr{
+    width: 100%;
+    border: 2px black solid;
+}
+#tabla textarea{
+    width: 100%;
+    resize: none;
+}
+.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
 
-
+.no-spin {
+    -moz-appearance:textfield !important;
+}
