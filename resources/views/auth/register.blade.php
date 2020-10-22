@@ -14,7 +14,7 @@
 
 
 <x-guest-layout>
-    @include("welcome.headerwelcome")
+    @include("Welcome.headerWelcome")
     </br>
     <x-jet-authentication-card>
         <x-slot name="logo">

@@ -17,6 +17,7 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\SeguimientoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 use App\Models\User;
 use App\Models\estudientes;
@@ -31,6 +32,7 @@ use App\Models\estudientes;
 | contains the "web" middleware group. Now create something great!
 |
 */
+URL::forceScheme('http');
 
 Route::get('/logged_in', function () {
     if (Auth::user() == null) {
