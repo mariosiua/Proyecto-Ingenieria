@@ -20,9 +20,6 @@
         </div>
         <div class="clearfix"></div>
         <div class="col-md-4 footer-about">
-            <h4>Acerca de Nosotros</h4>
-            <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
-                vehicula sit amet. </p>
             <div class="social-links social-icons">
                 <a href="https://www.facebook.com/VDOCENCIAUNA/"><img style="width:28px;" src="../imagenes/facebook.png"
                         class="facebook-img-card" /></a>

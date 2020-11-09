@@ -86,7 +86,7 @@ Route::get('/Tutorias-estudiantes/{id}', [ListaCursoEstudianteController::class,
 
 
 Route::get('/', function () {
-    return view('welcome.welcome');
+    return view('Welcome.welcome');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
