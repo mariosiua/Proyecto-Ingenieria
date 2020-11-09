@@ -13,7 +13,7 @@
                 @auth
                 <li class="nav-item">
                     <a class="nav-link" href="/user/profile" :active="request()->routeIs('profile.show')">
-                        {{ __('Profile') }}
+                        {{ __('Perfil') }}
                     </a>
                 </li>
                 <li class="nav-item">
@@ -22,17 +22,17 @@
 
                         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                             this.closest('form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Salir') }}
                         </a>
                     </form>
                 </li>
                 @else
-                <li class="nav-item">
+                <li class="nav-item navbar-rigth">
                     <a href="{{ route('login') }}" class="nav-link">Login</a>
                 </li>
                 @if (Route::has('register'))
-                <li class="nav-item">
-                    <a href="{{ route('register') }}" class="nav-link">Register</a>
+                <li class="nav-item navbar-rigth">
+                    <a href="{{ route('register') }}" class="nav-link">Registrarse</a>
                 </li>
                 @endif
                 @endif

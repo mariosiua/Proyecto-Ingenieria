@@ -25,7 +25,7 @@
   
     <!-- Aqui empieza el  formulario -->
     <div class= "form-card">
-        <h4 class="text-center">VICERRECTORIA DE DOCENCIA</h4><H5 class="text-center">EXITO ACADEMICO</H5><h4 class="text-center">DISPONIBILIDAD PARA ASESORIAS</h4>
+        <h4 class="text-center">VICERRECTORÍA DE DOCENCIA</h4><H5 class="text-center">ÉXITO ACADÉMICO</H5><h4 class="text-center">DISPONIBILIDAD PARA ASESORIAS</h4>
         <br><br>
         <div class="container">
           <div id="calendar"></div>
@@ -91,7 +91,6 @@
           defaultView: 'agendaWeek',
           selectable: true,
           selectAllow: false,
-          weekends: false,
           events: async function(start, end, timezone, callback) {
             var response = await fetch('AgendarSeguimientos/create', {method: 'GET'});
             var resul = await response.json();

@@ -17,7 +17,6 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\SeguimientoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\URL;
 
 use App\Models\User;
 use App\Models\estudientes;
@@ -32,11 +31,10 @@ use App\Models\estudientes;
 | contains the "web" middleware group. Now create something great!
 |
 */
-URL::forceScheme('http');
 
 Route::get('/logged_in', function () {
     if (Auth::user() == null) {
-        return view('Welcome.welcome');
+        return view('welcome.welcome');
     } else {
         $rol = Auth::user()->rol;
         $usuario = Auth::user();
@@ -88,7 +86,7 @@ Route::get('/Tutorias-estudiantes/{id}', [ListaCursoEstudianteController::class,
 
 
 Route::get('/', function () {
-    return view('Welcome.welcome');
+    return view('welcome.welcome');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -128,7 +126,7 @@ Route::get('/asistencia', function () {
 Route::get('/usuarios', [PersonaController::class, 'tablaUsuarios']);
 Route::get('/estudiantes-asignados', [TutorController::class, 'vistaEstudiante']);
 Route::get('/estudiante', [EstudianteController::class, 'tablaEstudiantes']);
-//Route::get('/horarioAsesor', [HorarioAsesorController::class, 'tablaHorarios']);
+Route::get('/horarioAsesor', [HorarioAsesorController::class, 'tablaHorarios']);
 
 Route::get('/contrato', function () {
     return view('contratoDeTutoria');
